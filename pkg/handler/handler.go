@@ -1,8 +1,8 @@
 package handler
 
 import (
+	"barCpGo/pkg/service"
 	"fmt"
-	"github.com/IvanVojnic/barCpGo.git/pkg/service"
 	"github.com/gin-gonic/gin"
 )
 
@@ -36,22 +36,10 @@ func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.New()
 	router.Use(CORSMiddleware())
 	fmt.Println("init routes")
-	auth := router.Group("/auth")
-	{
-		auth.POST("/signup", h.signUp)
-		auth.POST("/login", h.signIn)
-		auth.GET("/test", h.test)
-		auth.GET("/private", h.isAuth)
-	}
+
 	userCommunicate := router.Group("")
 	{
-		userCommunicate.POST("/getFriends", h.sendFriends)
-		userCommunicate.POST("/findFriend", h.findUser)
-		userCommunicate.POST("/sendRequest", h.sendRequest)
-		userCommunicate.POST("/getFriendsRequest", h.getFriendsRequest)
-		userCommunicate.POST("/acceptFriendsRequest", h.acceptFriendsRequest)
-		userCommunicate.POST("/sendInvite", h.sendInvite)
-		userCommunicate.POST("/getRooms", h.getRooms)
+		userCommunicate.POST("/getBars", h.getBars)
 	}
 	return router
 }

@@ -1,7 +1,10 @@
 package main
 
 import (
+	"barCpGo"
 	"barCpGo/pkg/handler"
+	"barCpGo/pkg/repository"
+	"barCpGo/pkg/service"
 	"context"
 	"github.com/segmentio/kafka-go"
 	"github.com/spf13/viper"
@@ -30,8 +33,8 @@ func main() {
 	services := service.NewService(repos)
 	handlers := handler.NewHandler(services)
 
-	srv := new(cpGo.Server)
-	if err := srv.Run("3000", handlers.InitRoutes()); err != nil {
+	srv := new(barCpGo.Server)
+	if err := srv.Run("5000", handlers.InitRoutes()); err != nil {
 		log.Fatalf("error", err.Error())
 	}
 }
