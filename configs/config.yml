@@ -1,8 +1,8 @@
 port: "5000"
 db:
-  username: "root"
+  username: "postgres"
   password: "vojnic"
   host: "localhost"
   port: "5438"
-  dbname: "bar"
+  dbname: "postgres"
   sslmode: "disable"

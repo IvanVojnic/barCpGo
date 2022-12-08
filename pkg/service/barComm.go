@@ -17,6 +17,14 @@ func (b BarCommService) GetBars() ([]models.Bar, error) {
 	return bars, nil
 }
 
+func (b BarCommService) GetBarName(id_place int) (string, error) {
+	barName, err := b.repo.GetBarName(id_place)
+	if err != nil {
+		return barName, err
+	}
+	return barName, nil
+}
+
 func NewBarComm(repo repository.BarComm) *BarCommService {
 	return &BarCommService{repo: repo}
 }

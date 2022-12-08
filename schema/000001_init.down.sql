@@ -1,1 +1,1 @@
-DROP TABLE Bars;
+DROP TABLE bars;

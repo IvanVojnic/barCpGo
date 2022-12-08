@@ -7,6 +7,7 @@ import (
 
 type BarComm interface {
 	GetBars() ([]models.Bar, error)
+	GetBarName(id_place int) (string, error)
 }
 
 type Repository struct {
